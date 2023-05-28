@@ -28,10 +28,23 @@ const CompanyHeader = () => (
 )
 
 
-const ChannelListContainer = () => {
+const ChannelListContainer = ({ isCreating, setIsCreating, setCreateType, setIsEditing}) => {
+ 
+  //const { client } = useChatContext();
+    const logout = () => {
+        Cookies.remove("token");
+        Cookies.remove('userId');
+        Cookies.remove('username');
+        Cookies.remove('fullName');
+        Cookies.remove('avatarURL');
+        Cookies.remove('hashedPassword');
+        Cookies.remove('phoneNumber');
+        window.location.reload();
+    }
+
   return (
     <>
-      <SideBar/>
+      <SideBar logout={logout}/>
       <div className="channel-list__list__wrapper">
                 <CompanyHeader />
                 <ChannelSearch />
@@ -42,6 +55,10 @@ const ChannelListContainer = () => {
                      <TeamChannelList
                        {... listProps}
                        type="team"
+                       isCreating={isCreating}
+                       setIsCreating={setIsCreating}
+                       setCreateType={setCreateType} 
+                       setIsEditing={setIsEditing}
                      />
                     )}
                  Preview={(previewProps) => (
@@ -58,11 +75,17 @@ const ChannelListContainer = () => {
                      <TeamChannelList
                        {... listProps}
                        type="messaging"
+                       isCreating={isCreating}
+                       setIsCreating={setIsCreating}
+                       setCreateType={setCreateType} 
+                       setIsEditing={setIsEditing}
                      />
                     )}
                  Preview={(previewProps) => (
                   <TeamChannelList
-                     {... listProps}
+                    {...previewProps}
+                    setIsCreating={setIsCreating}
+                    setIsEditing={setIsEditing}
                      type="messaging"
                   />
                  )}

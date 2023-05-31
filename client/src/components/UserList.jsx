@@ -81,7 +81,7 @@ const UserList = ({ setSelectedUsers }) => {
             </ListContainer>
         )
     }
-    
+    //if list is
     if(listEmpty) {
         return (
             <ListContainer>

@@ -34,7 +34,7 @@ const Auth = () => {
             username, password, fullName: form.fullName, phoneNumber, avatarURL,
         });
 
-        cookies.set('token', token);
+        cookies.set('toki', token);
         cookies.set('username', username);
         cookies.set('fullName', fullName);
         cookies.set('userId', userId);

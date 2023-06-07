@@ -25,7 +25,7 @@ const SideBar = ({ logout }) => (
 
 const CompanyHeader = () => (
     <div className="channel-list__header">
-        <p className="channel-list__header__text">Medical Pager</p>
+        <p className="channel-list__header__text"> MedLink: A Medical Pager</p>
     </div>
 )
 
@@ -41,7 +41,7 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
     const { client } = useChatContext();
 
     const logout = () => {
-        cookies.remove("token");
+        cookies.remove("toki");
         cookies.remove('userId');
         cookies.remove('username');
         cookies.remove('fullName');
